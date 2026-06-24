@@ -8,146 +8,148 @@
     <meta name="description" content=""/>
     <meta name="author" content=""/>
     <link rel="icon" href="/image/favicon.png"/>
-
-    <!-- Bootstrap core CSS -->
-    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    
+    <!-- Tailwind CSS v4 -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <!-- Ícones Open Iconic -->
     <link href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css" rel="stylesheet"/>
-
-    <!-- Custom styles for this template -->
-    <link href="/css/style.css" rel="stylesheet"/>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col pt-16">
 
-	<header>
-		<nav class="navbar navbar-inverse navbar navbar-dark bg-dark fixed-top">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="btn btn-dark navbar-toggle pull-left">
-						<i class="oi oi-menu"></i>
-					</button>				
-					<a class="navbar-brand navbar-toggle pull-left" href="#">Curso Spring Boot</a>
-				</div>
-			</div>
-		</nav>
-	</header>
+    <!-- HEADER / NAVBAR -->
+    <header class="bg-gray-900 text-white fixed top-0 left-0 right-0 h-16 z-50 flex items-center px-4 shadow-md">
+        <div class="w-full flex items-center justify-between max-w-7xl mx-auto">
+            <div class="flex items-center gap-4">
+                <button type="button" class="navbar-toggle lg:hidden p-2 rounded-md hover:bg-gray-800 text-gray-300">
+                    <i class="oi oi-menu text-lg"></i>
+                </button>				
+                <a class="text-xl font-bold tracking-wide text-indigo-400" href="#">Curso Spring Boot</a>
+            </div>
+        </div>
+    </header>
 	
-	<div class="layout-main">
+    <!-- MAIN CONTENT LAYOUT -->
+    <div class="flex flex-1 max-w-7xl w-full mx-auto relative">
 	
-	    <aside>
-	        <nav class="sidebar  sidebar-open">
-	            <ul class="nav nav-pills">
-	                <li class="nav-item"><a class="nav-link " href="/"> <i
-	                        class="oi oi-home"></i> <span>Home</span>
-	                </a></li>
-	            </ul>
-	
-	            <ul class="nav nav-pills">
-	                <li class="nav-item"><span class="nav-link active">Departamentos</span></li>
-	                <li class="nav-item"><a class="nav-link"
-	                                        href="/departamentos/cadastrar"> <i class="oi oi-plus"></i>
-	                    <span>Cadastrar</span>
-	                </a></li>
-	                <li class="nav-item"><a class="nav-link"
-	                                        href="/departamentos/listar"> <i class="oi oi-spreadsheet"></i>
-	                    <span>Listar </span>
-	                </a></li>
-	            </ul>
-	
-	            <ul class="nav nav-pills">
-	                <li class="nav-item"><span class="nav-link active">Cargos</span></li>
-	                <li class="nav-item"><a class="nav-link"
-	                                        href="/cargos/cadastrar"> <i class="oi oi-plus"></i> <span>Cadastrar </span>
-	                </a></li>
-	                <li class="nav-item"><a class="nav-link"
-	                                        href="/cargos/listar"> <i
-	                        class="oi oi-spreadsheet"></i> <span>Listar </span>
-	                </a></li>
-	            </ul>
-	
-	            <ul class="nav nav-pills">
-	                <li class="nav-item"><span class="nav-link active">Funcionários</span></li>
-	                <li class="nav-item"><a class="nav-link"
-	                                        href="/funcionarios/cadastrar"> <i class="oi oi-plus"></i>
-	                    <span>Cadastrar </span>
-	                </a></li>
-	                <li class="nav-item"><a class="nav-link"
-	                                        href="/funcionarios/listar"> <i class="oi oi-spreadsheet"></i>
-	                    <span>Listar </span>
-	                </a></li>
-	            </ul>
-	        </nav>
-	    </aside>
-	
-	    <section class="layout-content">
-	
-	        <nav class="navbar navbar-expand-md bg-light">
-	            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-	                <ul class="navbar-nav mr-auto">
-	                    <li class="nav-item active">
-	                        <i class="oi oi-caret-right"></i>
-	                        <span>Cadastrar Cargos</span>
-	                    </li>
-	                </ul>
-	            </div>
-	            <a class="btn btn-primary btn-md" href="/cargos/listar" role="button">
-	                <span class="oi oi-spreadsheet" title="Cadastro" aria-hidden="true"></span>
-	                <span>Listar Cargos</span>
-	            </a>
-	        </nav>
-	
-	        <div class="container" id="cadastro">
-	            <form action="/cargos/salvar" method="POST">
-	                <div class="form-row">
-	                    <div class="form-group col-md-6">
-	                        <label for="nome">Nome do Cargo</label>
-	                        <input type="text" class="form-control" id="nome" placeholder="Nome Cargo" autofocus="autofocus"
-	                               name="nome" value=""/>
-	                    </div>
-	                    <div class="form-group col-md-4">
-	                        <label for="departamento">Departamento</label>
-	                        <select id="departamento" class="form-control" name="departamento">
-	                            <option value="">Selecione</option>
-	                            <option value="3">Administração</option>
-	                            <option value="2">Contabilidade</option>
-	                            <option value="1">Recursos Humanos</option>
-	                            <option value="4">Tecnologia da Informação</option>
-	                        </select>
-	                    </div>
-	                </div>
-	                <input type="hidden" id="id" name="id" value=""/>
-	                <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
-	            </form>
-	        </div>
-	    </section>
+        <!-- SIDEBAR -->
+        <aside class="sidebar fixed inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 lg:static z-40 w-64 bg-white border-r border-gray-200 pt-20 lg:pt-6 px-4 transition-transform duration-300 ease-in-out">
+            <nav class="space-y-6">
+                <!-- Home Section -->
+                <div>
+                    <a class="flex items-center gap-3 px-3 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg font-medium transition" href="/">
+                        <i class="oi oi-home text-sm"></i> <span>Home</span>
+                    </a>
+                </div>
 
-	</div>
+                <!-- Departamentos Section -->
+                <div class="space-y-1">
+                    <span class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Departamentos</span>
+                    <a class="flex items-center gap-3 px-3 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg text-sm" href="/departamentos/cadastrar">
+                        <i class="oi oi-plus"></i> <span>Cadastrar</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg text-sm" href="/departamentos/listar">
+                        <i class="oi oi-spreadsheet"></i> <span>Listar</span>
+                    </a>
+                </div>
 	
-    <footer class="layout-footer">
-        <div class="container">
-            <span class="footer-copy">&copy; 2018 MBallem. Todos os direitos reservados.</span>
+                <!-- Cargos Section -->
+                <div class="space-y-1">
+                    <span class="px-3 text-xs font-semibold text-indigo-600 uppercase tracking-wider">Cargos</span>
+                    <a class="flex items-center gap-3 px-3 py-2 bg-indigo-50 text-indigo-700 rounded-lg text-sm font-medium" href="/cargos/cadastrar">
+                        <i class="oi oi-plus"></i> <span>Cadastrar</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg text-sm" href="/cargos/listar">
+                        <i class="oi oi-spreadsheet"></i> <span>Listar</span>
+                    </a>
+                </div>
+	
+                <!-- Funcionários Section -->
+                <div class="space-y-1">
+                    <span class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Funcionários</span>
+                    <a class="flex items-center gap-3 px-3 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg text-sm" href="/funcionarios/cadastrar">
+                        <i class="oi oi-plus"></i> <span>Cadastrar</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg text-sm" href="/funcionarios/listar">
+                        <i class="oi oi-spreadsheet"></i> <span>Listar</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+	
+        <!-- CONTENT AREA -->
+        <main class="flex-1 p-6 lg:p-10 w-full overflow-x-hidden">
+	
+            <!-- Sub-Header / Breadcrumb -->
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-gray-200 pb-5 mb-8">
+                <div class="flex items-center gap-2 text-gray-500">
+                    <i class="oi oi-caret-right text-xs"></i>
+                    <h1 class="text-xl font-semibold text-gray-900">Cadastrar Cargos</h1>
+                </div>
+                <a class="inline-flex items-center gap-2 bg-white border border-gray-300 rounded-lg px-4 py-2 text-sm font-medium text-gray-700 shadow-xs hover:bg-gray-50 transition" href="/cargos/listar" role="button">
+                    <span class="oi oi-spreadsheet" aria-hidden="true"></span>
+                    <span>Listar Cargos</span>
+                </a>
+            </div>
+	
+            <!-- Form Card Container -->
+            <div class="bg-white border border-gray-200 rounded-xl shadow-xs p-6 max-w-3xl">
+                <form action="/cargos/salvar" method="POST" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Input Nome -->
+                        <div class="flex flex-col gap-1.5">
+                            <label for="nome" class="text-sm font-medium text-gray-700">Nome do Cargo</label>
+                            <input type="text" id="nome" name="nome" placeholder="Ex: Analista de Sistemas" autofocus="autofocus" value=""
+                                   class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm shadow-xs focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:outline-hidden transition"/>
+                        </div>
+                        
+                        <!-- Select Departamento -->
+                        <div class="flex flex-col gap-1.5">
+                            <label for="departamento" class="text-sm font-medium text-gray-700">Departamento</label>
+                            <select id="departamento" name="departamento"
+                                    class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm shadow-xs focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:outline-hidden transition bg-white">
+                                <option value="">Selecione...</option>
+                                <option value="3">Administração</option>
+                                <option value="2">Contabilidade</option>
+                                <option value="1">Recursos Humanos</option>
+                                <option value="4">Tecnologia da Informação</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <input type="hidden" id="id" name="id" value=""/>
+                    
+                    <!-- Submit Button -->
+                    <div class="pt-2 border-t border-gray-100 flex justify-end">
+                        <button type="submit" class="bg-indigo-600 text-white font-medium text-sm px-5 py-2.5 rounded-lg shadow-sm hover:bg-indigo-500 focus:outline-hidden focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition cursor-pointer">
+                            Salvar Cargo
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+    </div>
+	
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-gray-200 py-4 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-gray-500">
+            <span>&copy; 2018 MBallem. Todos os direitos reservados.</span>
         </div>
     </footer>
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
+<!-- Scripts -->
 <script src="/webjars/jquery/jquery.min.js"></script>
 <script src="/webjars/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
-<script
-        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-
-    $(function () {
-        $('[data-toggle="popover"]').popover();
+    $(document).ready(function(){
+        // Alternar classes do Tailwind para abrir/fechar o menu mobile de forma limpa
+        $(".navbar-toggle").click(function(){
+            $(".sidebar").toggleClass("-translate-x-full");
+        })
     });
-    
-	$(document).ready(function(){
-	    $(".navbar-toggle").click(function(){
-	        $(".sidebar").toggleClass("sidebar-open");
-	    })
-	});
-
 </script>
 </body>
-</html>		
+</html>
