@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <title>Spring-Boot Básico</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" href="/image/favicon.png" />
+
+    <!-- Tailwind CSS v4 -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Ícones Open Iconic -->
+    <link th:href="@{/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css}" rel="stylesheet" />
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col pt-16">
+
+    <!-- HEADER / NAVBAR -->
+    <header th:replace="~{fragments/header :: cabecalho}">
+        <div>cabecalho</div>
+    </header>
+
+    <div class="flex flex-1 max-w-7xl w-full mx-auto relative">
+        <!-- SIDEBAR -->
+        <aside th:replace="~{fragments/sidebar :: nav-sidebar}">
+            <div>menu</div>
+        </aside>
+
+        <main class="flex-1 p-6 lg:p-10 w-full overflow-x-hidden bg-indigo-50" layout:fragment="corpo">
+            Conteúdo principal das páginas
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer th:replace="~{fragments/footer :: rodape}">
+        <div>footer</div>
+    </footer>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Alternar classes do Tailwind para abrir/fechar o menu mobile de forma limpa
+            $(".navbar-toggle").click(function () {
+                $(".sidebar").toggleClass("-translate-x-full");
+            })
+        });
+    </script>
+</body>
+
+</html>

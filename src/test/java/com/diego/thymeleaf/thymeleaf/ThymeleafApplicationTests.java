@@ -1,5 +1,7 @@
 package com.diego.thymeleaf.thymeleaf;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -8,6 +10,7 @@ class ThymeleafApplicationTests {
 
 	@Test
 	void contextLoads() {
+		assertEquals(true, true);
 	}
 
 }

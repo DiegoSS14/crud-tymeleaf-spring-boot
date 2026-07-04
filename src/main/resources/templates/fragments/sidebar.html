@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <aside
+        class="sidebar fixed inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 lg:static z-40 w-64 bg-white border-r border-gray-200 pt-20 lg:pt-6 px-4 transition-transform duration-300 ease-in-out">
+        <nav class="space-y-6 py-4 px-2" th:fragment="nav-sidebar">
+            <!-- Home Section -->
+            <div>
+                <a class="flex items-center gap-3 px-3 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg font-medium transition"
+                    href="/">
+                    <i class="oi oi-home text-sm"></i> <span>Home</span>
+                </a>
+            </div>
+
+            <!-- Departamentos Section -->
+            <div class="space-y-1">
+                <span class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Departamentos</span>
+                <a class="flex items-center gap-3 px-3 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg text-sm"
+                    href="/departamentos/cadastrar">
+                    <i class="oi oi-plus"></i> <span>Cadastrar</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg text-sm"
+                    href="/departamentos/listar">
+                    <i class="oi oi-spreadsheet"></i> <span>Listar</span>
+                </a>
+            </div>
+
+            <!-- Cargos Section -->
+            <div class="space-y-1">
+                <span class="px-3 text-xs font-semibold text-indigo-600 uppercase tracking-wider">Cargos</span>
+                <a class="flex items-center gap-3 px-3 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg text-sm"
+                    href="/cargos/cadastrar">
+                    <i class="oi oi-plus"></i> <span>Cadastrar</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg text-sm"
+                    href="/cargos/listar">
+                    <i class="oi oi-spreadsheet"></i> <span>Listar</span>
+                </a>
+            </div>
+
+            <!-- Funcionários Section -->
+            <div class="space-y-1">
+                <span class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Funcionários</span>
+                <a class="flex items-center gap-3 px-3 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg text-sm"
+                    href="/funcionarios/cadastrar">
+                    <i class="oi oi-plus"></i> <span>Cadastrar</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg text-sm"
+                    href="/funcionarios/listar">
+                    <i class="oi oi-spreadsheet"></i> <span>Listar</span>
+                </a>
+            </div>
+        </nav>
+    </aside>
+</body>
+
+</html>
