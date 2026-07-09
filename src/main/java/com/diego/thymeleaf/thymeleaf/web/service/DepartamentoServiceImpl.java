@@ -37,5 +37,10 @@ public class DepartamentoServiceImpl implements DepartamentoService {
     public void criar(Departamento departamento) {
         dao.save(departamento);
     }
+
+    @Override
+    public void salvar(Departamento departamento) {
+        dao.save(departamento);
+    }
     
 }
