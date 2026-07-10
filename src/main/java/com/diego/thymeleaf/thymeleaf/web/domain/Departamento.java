@@ -14,6 +14,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Departamento extends AbstractEntity<Long>{
+
     @Column(name = "NAME", nullable = false, length = 60)
     private String name;
 
