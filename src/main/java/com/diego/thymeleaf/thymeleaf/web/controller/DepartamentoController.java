@@ -4,14 +4,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.diego.thymeleaf.thymeleaf.web.domain.Departamento;
 import com.diego.thymeleaf.thymeleaf.web.service.DepartamentoService;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PathVariable;
+
 
 
 
@@ -56,5 +55,10 @@ public class DepartamentoController {
         return "redirect:/departamentos/cadastrar";
     }
 
+    @GetMapping("excluir/{id}")
+    public String excluir(@PathVariable("id") Long id, ModelMap modelMap) {
+        service.excluir(id);
+        return listar(modelMap);
+    }
     
 }

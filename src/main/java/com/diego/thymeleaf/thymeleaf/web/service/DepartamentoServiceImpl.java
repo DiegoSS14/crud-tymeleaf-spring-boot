@@ -42,5 +42,17 @@ public class DepartamentoServiceImpl implements DepartamentoService {
     public void salvar(Departamento departamento) {
         dao.save(departamento);
     }
+
+    @Override
+    public void excluir(Long id) {
+        if (this.temCargoAssociado(id)) return;
+        dao.delete(id);
+    }
+
+    @Override
+    public boolean temCargoAssociado(Long id) {
+       Departamento byId = dao.findById(id);
+       return byId.getCargos().isEmpty() ? false : true;
+    }
     
 }

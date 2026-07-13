@@ -41,12 +41,58 @@
     </footer>
 
     <script type="text/javascript">
-        $(document).ready(function () {
-            // Alternar classes do Tailwind para abrir/fechar o menu mobile de forma limpa
-            $(".navbar-toggle").click(function () {
-                $(".sidebar").toggleClass("-translate-x-full");
+        document.addEventListener('DOMContentLoaded', function () {
+            var pendingDeleteUrl = ''
+            var dialog = document.getElementById('myModal')
+            var confirmButton = document.getElementById('btnConfirmDelete')
+            var cancelButton = document.getElementById('btnCancelDelete')
+
+            document.querySelectorAll('[data-delete-url]').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    pendingDeleteUrl = this.dataset.deleteUrl
+
+                    if (dialog && typeof dialog.showModal === 'function') {
+                        dialog.showModal()
+                    } else if (pendingDeleteUrl) {
+                        window.location.href = pendingDeleteUrl
+                    }
+                })
             })
-        });
+
+            if (confirmButton) {
+                confirmButton.addEventListener('click', function () {
+                    if (pendingDeleteUrl) {
+                        window.location.href = pendingDeleteUrl
+                    }
+                })
+            }
+
+            if (cancelButton) {
+                cancelButton.addEventListener('click', function () {
+                    if (dialog) {
+                        dialog.close()
+                    }
+                })
+            }
+
+            if (dialog) {
+                dialog.addEventListener('click', function (event) {
+                    if (event.target === dialog) {
+                        dialog.close()
+                    }
+                })
+            }
+
+            // Alternar classes do Tailwind para abrir/fechar o menu mobile de forma limpa
+            var navbarToggle = document.querySelector('.navbar-toggle')
+            var sidebar = document.querySelector('.sidebar')
+
+            if (navbarToggle && sidebar) {
+                navbarToggle.addEventListener('click', function () {
+                    sidebar.classList.toggle('-translate-x-full')
+                })
+            }
+        })
     </script>
 </body>
 

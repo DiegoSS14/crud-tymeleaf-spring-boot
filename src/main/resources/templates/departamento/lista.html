@@ -40,13 +40,14 @@
 							<td th:text="${d.id}" class="p-3">123...</td>
 							<td th:text="${d.name}" class="p-3">Nome do departamento</td>
 							<td colspan="2" class="flex items-center justify-center gap-1">
-								<a class="flex items-center justify-center text-gray-900 bg-gray-300 cursor-pointer px-2 py-1 rounded-md" th:href="@{/departamentos/editar/{id} (id=${d.id})}" role="button">
+								<a class="flex items-center justify-center text-sm text-gray-900 bg-gray-300 cursor-pointer px-2 py-1 rounded-md hover:text-white/90 hover:bg-gray-600 transition-all"
+									th:href="@{/departamentos/editar/{id} (id=${d.id})}" role="button">
 									<span class="oi oi-brush" title="Editar" aria-hidden="true">Editar</span>
 								</a>
-								<button id="btn_departamentos/excluir/3" type="button" class="flex items-center justify-center text-white bg-red-500 cursor-pointer px-2 py-1 rounded-md">
-									<span class="oi oi-circle-x" title="Exclusão desabilitada"
-										aria-hidden="true">excluir</span>
-								</button>
+								<button type="button"
+									th:attr="data-delete-url=@{/departamentos/excluir/{id}(id=${d.id})}"
+									class="rounded-md bg-red-500 px-2 py-1 text-sm font-semibold text-white hover:text-white/20 hover:bg-red-600 transition-all"
+								>Excluir</button>
 							</td>
 						</tr>
 					</tbody>
@@ -55,6 +56,8 @@
 			</div>
 		</section>
 		</div>
+
+		<div th:replace="fragments/modal :: modal"></div>
 	</section>
 </body>
 

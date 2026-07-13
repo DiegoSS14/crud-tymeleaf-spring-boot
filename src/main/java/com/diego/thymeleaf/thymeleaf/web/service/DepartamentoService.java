@@ -9,5 +9,7 @@ public interface DepartamentoService {
     void atualizar(Departamento departamento);
     void salvar(Departamento departamento);
     Departamento buscarPorId(Long id);
+    void excluir(Long id);
     List<Departamento> buscarTodos();
+    boolean temCargoAssociado(Long id);
 }
