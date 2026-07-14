@@ -10,7 +10,7 @@
 	<section layout:fragment="corpo">
 
 		<section class="layout-content">
-
+			
 			<nav class="navbar navbar-expand-md bg-light">
 				<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 					<ul class="navbar-nav mr-auto">
@@ -25,6 +25,8 @@
 					</a>
 				</div>
 			</nav>
+
+			<div th:replace="fragments/alert">alert</div>
 
 			<div class="container" id="cadastro">
 				<form th:action="${departamento.id} == null ? @{/departamentos/salvar} : @{/departamentos/editar}" 
