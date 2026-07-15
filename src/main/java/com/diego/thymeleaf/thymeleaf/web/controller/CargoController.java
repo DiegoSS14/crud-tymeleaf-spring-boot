@@ -14,6 +14,7 @@ import com.diego.thymeleaf.thymeleaf.web.domain.Departamento;
 import com.diego.thymeleaf.thymeleaf.web.service.CargoService;
 import com.diego.thymeleaf.thymeleaf.web.service.DepartamentoService;
 
+import org.springframework.transaction.annotation.Transactional;
 import lombok.AllArgsConstructor;
 
 
@@ -21,6 +22,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 @Controller
 @RequestMapping("cargos")
+@Transactional(readOnly = true)
 public class CargoController {
 
     private DepartamentoService departamentoService;
@@ -37,10 +39,11 @@ public class CargoController {
     }
 
     @PostMapping("salvar")
+    @Transactional(readOnly = false)
     public String salvar(Cargo cargo, RedirectAttributes attr) {
         cargoService.criar(cargo);
-        attr.addFlashAttribute("cargo", cargo);
-        return "redirect:/cargos/salvar";
+        attr.addFlashAttribute("success", "Cargo salvo com sucesso!");
+        return "redirect:/cargos/cadastrar";
     }
     
     @ModelAttribute("departamentos")
