@@ -28,7 +28,7 @@
 
             <!-- Form Card Container -->
             <div class="bg-white border border-gray-200 rounded-xl shadow-xs p-6 max-w-3xl">
-                <form action="/cargos/salvar" method="POST" class="space-y-6">
+                <form th:action="@{/cargos/salvar}" method="POST" class="space-y-6" th:object="${cargo}">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Input Nome -->
                         <div class="flex flex-col gap-1.5">
@@ -44,10 +44,7 @@
                             <select id="departamento" name="departamento"
                                 class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm shadow-xs focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:outline-hidden transition bg-white">
                                 <option value="">Selecione...</option>
-                                <option value="3">Administração</option>
-                                <option value="2">Contabilidade</option>
-                                <option value="1">Recursos Humanos</option>
-                                <option value="4">Tecnologia da Informação</option>
+                                <option th:each="d : ${departamentos}" th:value="${d.id}" th:text="${d.name}">Departamento</option>
                             </select>
                         </div>
                     </div>
