@@ -26,7 +26,7 @@
                 </a>
             </div>
 
-            <div th:replace="fragments/alert">alert</div>
+            <div th:replace="~{fragments/alert}">alert</div>
 
             <!-- Form Card Container -->
             <div class="bg-white border border-gray-200 rounded-xl shadow-xs p-6 max-w-3xl">
@@ -35,15 +35,15 @@
                         <!-- Input Nome -->
                         <div class="flex flex-col gap-1.5">
                             <label for="nome" class="text-sm font-medium text-gray-700">Nome do Cargo</label>
-                            <input type="text" id="nome" name="nome" placeholder="Ex: Analista de Sistemas" th:field="${cargo.name}"
-                                autofocus="autofocus" value=""
+                            <input type="text" id="nome" placeholder="Ex: Analista de Sistemas" th:field="*{name}"
+                                autofocus="autofocus"
                                 class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm shadow-xs focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:outline-hidden transition" />
                         </div>
 
                         <!-- Select Departamento -->
                         <div class="flex flex-col gap-1.5">
                             <label for="departamento" class="text-sm font-medium text-gray-700">Departamento</label>
-                            <select id="departamento" name="departamento"
+                            <select id="departamento" th:field="*{departamento}"
                                 class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm shadow-xs focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:outline-hidden transition bg-white">
                                 <option value="">Selecione...</option>
                                 <option th:each="d : ${departamentos}" th:value="${d.id}" th:text="${d.name}">Departamento</option>
@@ -51,7 +51,7 @@
                         </div>
                     </div>
 
-                    <input type="hidden" id="id" name="id" value="" />
+                    <input type="hidden" th:field="*{id}" />
 
                     <!-- Submit Button -->
                     <div class="pt-2 border-t border-gray-100 flex justify-end">

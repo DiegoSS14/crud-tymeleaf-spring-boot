@@ -10,40 +10,38 @@ import com.diego.thymeleaf.thymeleaf.web.domain.Departamento;
 
 import lombok.AllArgsConstructor;
 
-@Service @Transactional(readOnly = false)
+@Service @Transactional(readOnly = true)
 @AllArgsConstructor
 public class DepartamentoServiceImpl implements DepartamentoService {
     
     private DepartamentoDao dao;
 
     @Override
+    @Transactional(readOnly = false)
     public void atualizar(Departamento departamento) {
         dao.update(departamento);        
     }
-
+    
     @Override
     @Transactional(readOnly = true)
     public Departamento buscarPorId(Long id) {
         return dao.findById(id);
     }
-
+    
     @Override
     @Transactional(readOnly = true)
     public List<Departamento> buscarTodos() {
         return dao.findAll();
     }
-
+    
     @Override
-    public void criar(Departamento departamento) {
-        dao.save(departamento);
-    }
-
-    @Override
+    @Transactional(readOnly = false)
     public void salvar(Departamento departamento) {
         dao.save(departamento);
     }
-
+    
     @Override
+    @Transactional(readOnly = false)
     public void excluir(Long id) {
         if (this.temCargoAssociado(id)) return;
         dao.delete(id);

@@ -24,6 +24,8 @@
                 </a>
             </div>
 
+            <div th:replace="~{fragments/alert}">alert</div>
+
             <div class="bg-white border border-gray-200 rounded-xl shadow-xs overflow-hidden">
                 <div class="overflow-x-auto">
                     <table class="w-full text-left border-collapse text-sm">
@@ -36,183 +38,13 @@
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-100 text-gray-700">
-                            <tr>
-                                <td class="px-6 py-3.5 font-medium">1</td>
-                                <td class="px-6 py-3.5">Auxiliar Contábil</td>
-                                <td class="px-6 py-3.5">Contabilidade</td>
+                            <tr th:each="c : ${cargos}">
+                                <td class="px-6 py-3.5 font-medium" th:text="${c.id}">1</td>
+                                <td class="px-6 py-3.5" th:text="${c.name}">Auxiliar Contábil</td>
+                                <td class="px-6 py-3.5" th:text="${c.departamento.name}">Contabilidade</td>
                                 <td class="px-6 py-3.5 text-right space-x-1">
                                     <a class="inline-flex p-1.5 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md transition"
                                         href="/cargos/editar/1" role="button">
-                                        <span class="oi oi-brush text-xs" title="Editar" aria-hidden="true"></span>
-                                    </a>
-                                    <button type="button"
-                                        class="inline-flex p-1.5 bg-red-50 text-red-400 cursor-not-allowed rounded-md"
-                                        disabled>
-                                        <span class="oi oi-circle-x text-xs" title="Exclusão desabilitada"
-                                            aria-hidden="true"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-3.5 font-medium">2</td>
-                                <td class="px-6 py-3.5">Auxiliar Administrativo</td>
-                                <td class="px-6 py-3.5">Administração</td>
-                                <td class="px-6 py-3.5 text-right space-x-1">
-                                    <a class="inline-flex p-1.5 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md transition"
-                                        href="/cargos/editar/2" role="button">
-                                        <span class="oi oi-brush text-xs" title="Editar" aria-hidden="true"></span>
-                                    </a>
-                                    <button type="button"
-                                        class="inline-flex p-1.5 bg-red-50 text-red-400 cursor-not-allowed rounded-md"
-                                        disabled>
-                                        <span class="oi oi-circle-x text-xs" title="Exclusão desabilitada"
-                                            aria-hidden="true"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-3.5 font-medium">3</td>
-                                <td class="px-6 py-3.5">Contador</td>
-                                <td class="px-6 py-3.5">Contabilidade</td>
-                                <td class="px-6 py-3.5 text-right space-x-1">
-                                    <a class="inline-flex p-1.5 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md transition"
-                                        href="/cargos/editar/3" role="button">
-                                        <span class="oi oi-brush text-xs" title="Editar" aria-hidden="true"></span>
-                                    </a>
-                                    <button type="button"
-                                        class="inline-flex p-1.5 bg-red-50 text-red-400 cursor-not-allowed rounded-md"
-                                        disabled>
-                                        <span class="oi oi-circle-x text-xs" title="Exclusão desabilitada"
-                                            aria-hidden="true"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-3.5 font-medium">4</td>
-                                <td class="px-6 py-3.5">Administrador</td>
-                                <td class="px-6 py-3.5">Administração</td>
-                                <td class="px-6 py-3.5 text-right space-x-1">
-                                    <a class="inline-flex p-1.5 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md transition"
-                                        href="/cargos/editar/4" role="button">
-                                        <span class="oi oi-brush text-xs" title="Editar" aria-hidden="true"></span>
-                                    </a>
-                                    <button type="button"
-                                        class="inline-flex p-1.5 bg-red-50 text-red-400 cursor-not-allowed rounded-md"
-                                        disabled>
-                                        <span class="oi oi-circle-x text-xs" title="Exclusão desabilitada"
-                                            aria-hidden="true"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-3.5 font-medium">5</td>
-                                <td class="px-6 py-3.5">Programador PHP</td>
-                                <td class="px-6 py-3.5">Tecnologia da Informação</td>
-                                <td class="px-6 py-3.5 text-right space-x-1">
-                                    <a class="inline-flex p-1.5 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md transition"
-                                        href="/cargos/editar/5" role="button">
-                                        <span class="oi oi-brush text-xs" title="Editar" aria-hidden="true"></span>
-                                    </a>
-                                    <button type="button"
-                                        class="inline-flex p-1.5 bg-red-50 text-red-400 cursor-not-allowed rounded-md"
-                                        disabled>
-                                        <span class="oi oi-circle-x text-xs" title="Exclusão desabilitada"
-                                            aria-hidden="true"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-3.5 font-medium">6</td>
-                                <td class="px-6 py-3.5">Desenvolvedor Java Jr.</td>
-                                <td class="px-6 py-3.5">Tecnologia da Informação</td>
-                                <td class="px-6 py-3.5 text-right space-x-1">
-                                    <a class="inline-flex p-1.5 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md transition"
-                                        href="/cargos/editar/6" role="button">
-                                        <span class="oi oi-brush text-xs" title="Editar" aria-hidden="true"></span>
-                                    </a>
-                                    <button type="button"
-                                        class="inline-flex p-1.5 bg-red-50 text-red-400 cursor-not-allowed rounded-md"
-                                        disabled>
-                                        <span class="oi oi-circle-x text-xs" title="Exclusão desabilitada"
-                                            aria-hidden="true"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-3.5 font-medium">7</td>
-                                <td class="px-6 py-3.5">Desenvolvedor Java Pleno</td>
-                                <td class="px-6 py-3.5">Tecnologia da Informação</td>
-                                <td class="px-6 py-3.5 text-right space-x-1">
-                                    <a class="inline-flex p-1.5 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md transition"
-                                        href="/cargos/editar/7" role="button">
-                                        <span class="oi oi-brush text-xs" title="Editar" aria-hidden="true"></span>
-                                    </a>
-                                    <button type="button"
-                                        class="inline-flex p-1.5 bg-red-50 text-red-400 cursor-not-allowed rounded-md"
-                                        disabled>
-                                        <span class="oi oi-circle-x text-xs" title="Exclusão desabilitada"
-                                            aria-hidden="true"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-3.5 font-medium">8</td>
-                                <td class="px-6 py-3.5">Desenvolvedor Java Senior</td>
-                                <td class="px-6 py-3.5">Tecnologia da Informação</td>
-                                <td class="px-6 py-3.5 text-right space-x-1">
-                                    <a class="inline-flex p-1.5 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md transition"
-                                        href="/cargos/editar/8" role="button">
-                                        <span class="oi oi-brush text-xs" title="Editar" aria-hidden="true"></span>
-                                    </a>
-                                    <button type="button"
-                                        class="inline-flex p-1.5 bg-red-50 text-red-400 cursor-not-allowed rounded-md"
-                                        disabled>
-                                        <span class="oi oi-circle-x text-xs" title="Exclusão desabilitada"
-                                            aria-hidden="true"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-3.5 font-medium">9</td>
-                                <td class="px-6 py-3.5">Auxiliar de RH</td>
-                                <td class="px-6 py-3.5">Recursos Humanos</td>
-                                <td class="px-6 py-3.5 text-right space-x-1">
-                                    <a class="inline-flex p-1.5 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md transition"
-                                        href="/cargos/editar/9" role="button">
-                                        <span class="oi oi-brush text-xs" title="Editar" aria-hidden="true"></span>
-                                    </a>
-                                    <button type="button"
-                                        class="inline-flex p-1.5 bg-red-50 text-red-400 cursor-not-allowed rounded-md"
-                                        disabled>
-                                        <span class="oi oi-circle-x text-xs" title="Exclusão desabilitada"
-                                            aria-hidden="true"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-3.5 font-medium">10</td>
-                                <td class="px-6 py-3.5">Coordenador de RH</td>
-                                <td class="px-6 py-3.5">Recursos Humanos</td>
-                                <td class="px-6 py-3.5 text-right space-x-1">
-                                    <a class="inline-flex p-1.5 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md transition"
-                                        href="/cargos/editar/10" role="button">
-                                        <span class="oi oi-brush text-xs" title="Editar" aria-hidden="true"></span>
-                                    </a>
-                                    <button type="button"
-                                        class="inline-flex p-1.5 bg-red-50 text-red-400 cursor-not-allowed rounded-md"
-                                        disabled>
-                                        <span class="oi oi-circle-x text-xs" title="Exclusão desabilitada"
-                                            aria-hidden="true"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-3.5 font-medium">11</td>
-                                <td class="px-6 py-3.5">Psicólogo</td>
-                                <td class="px-6 py-3.5">Recursos Humanos</td>
-                                <td class="px-6 py-3.5 text-right space-x-1">
-                                    <a class="inline-flex p-1.5 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md transition"
-                                        href="/cargos/editar/11" role="button">
                                         <span class="oi oi-brush text-xs" title="Editar" aria-hidden="true"></span>
                                     </a>
                                     <button type="button"

@@ -12,17 +12,19 @@ import lombok.AllArgsConstructor;
 
 
 
-@Service @Transactional(readOnly = false)
+@Service @Transactional(readOnly = true)
 @AllArgsConstructor
 public class CargoServiceImpl implements CargoService{
 
     private CargoDao dao;
 
+    @Transactional(readOnly = false)
     @Override
     public void atualizar(Cargo cargo) {
         dao.update(cargo);
     }
 
+    @Transactional(readOnly = true)
     @Override
     public Cargo buscarPorId(Long id) {
         return dao.findById(id);
@@ -31,12 +33,12 @@ public class CargoServiceImpl implements CargoService{
     @Transactional(readOnly = true)
     @Override
     public List<Cargo> buscarTodos() {
-        return null;
+        return dao.findAll();
     }
     
-    @Transactional(readOnly = true)
+    @Transactional(readOnly = false)
     @Override
-    public void criar(Cargo cargo) {
+    public void salvar(Cargo cargo) {
         dao.save(cargo);        
     }
     
