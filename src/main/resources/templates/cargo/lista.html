@@ -44,14 +44,13 @@
                                 <td class="px-6 py-3.5" th:text="${c.departamento.name}">Contabilidade</td>
                                 <td class="px-6 py-3.5 text-right space-x-1">
                                     <a class="inline-flex p-1.5 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md transition"
-                                        href="/cargos/editar/1" role="button">
-                                        <span class="oi oi-brush text-xs" title="Editar" aria-hidden="true"></span>
+                                        th:href="@{/cargos/editar/{id} (id=${c.id})}" role="button">
+                                        <span class="oi oi-brush text-xs" title="Editar" aria-hidden="true">Editar</span>
                                     </a>
                                     <button type="button"
-                                        class="inline-flex p-1.5 bg-red-50 text-red-400 cursor-not-allowed rounded-md"
-                                        disabled>
-                                        <span class="oi oi-circle-x text-xs" title="Exclusão desabilitada"
-                                            aria-hidden="true"></span>
+                                        class="inline-flex p-1.5 bg-red-50 text-red-400 rounded-md cursor-pointer">
+                                        <span class="text-xs" title="Exclusão"
+                                            aria-hidden="true">Deletar</span>
                                     </button>
                                 </td>
                             </tr>

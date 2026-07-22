@@ -3,9 +3,11 @@ package com.diego.thymeleaf.thymeleaf.web.controller;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -16,6 +18,8 @@ import com.diego.thymeleaf.thymeleaf.web.service.CargoService;
 import com.diego.thymeleaf.thymeleaf.web.service.DepartamentoService;
 
 import lombok.AllArgsConstructor;
+
+
 
 
 
@@ -54,4 +58,22 @@ public class CargoController {
     public List<Departamento> departamentos() {
         return departamentoService.buscarTodos();
     }
+
+    @GetMapping("editar/{id}")
+    public String preEditar(@PathVariable Long id, Model model) {
+        Cargo cargo = cargoService.buscarPorId(id);
+        if (cargo == null) {
+            return "error";
+        }
+        model.addAttribute("cargo", cargo);
+        return "cargo/cadastro";
+    }
+
+    @PostMapping("editar")
+    public String editar(Cargo cargo, RedirectAttributes attr) {
+        cargoService.atualizar(cargo);
+        attr.addFlashAttribute("success", "Registro atualizado com sucesso!");
+        return "redirect:/cargos/cadastrar"; 
+    }
+    
 }
